@@ -4,21 +4,18 @@ the Virtual env is set using python3 -m venv venv
 so please use this command to run the virtual env - 
 
 <pre>
-```python
 source venv/bin/activate
-```
-</pre>``
+</pre>
 
 Please run the following commands to run the program - 
 <pre>
-```python
+
 python3 manage.py makemigrations
 
 python3 manage.py migrate
    
 python3 manage.py runserver 
-```
-</pre>``
+</pre>
 
 once the website opens you can use it
 
