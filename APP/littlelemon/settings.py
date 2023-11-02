@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # The settings for app updated for the Graded assessment
     'restaurant',
+    'rest_framework',
+    'djoser',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +60,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # The settings for templates updated for the Graded assessment
-        'DIRS': ['restaurant/templates' ],
+        # 'DIRS': ['restaurant/templates' ],
+        'DIRS': ['templates' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,11 +90,14 @@ DATABASES = {
         # 'PASSWORD' : 'root@123',
         # for reservations
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'reservations',
+        'NAME': 'database_name',
         'HOST': '127.0.0.1',
         'USER': 'admindjango',
         'PASSWORD': 'employee@123!',
-        'PORT': '3306'
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -142,3 +149,23 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        # 'rest_framework_xml.renderers.XMLRenderer',
+        'rest_framework.filters.OrderingFilter',
+        'rest_framework.filters.SearchFilter',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}
+
+DJOSER = {
+    "USER_ID_FIELD" : "username"
+    # "LOGIN_FIELD" : "email"
+}
