@@ -39,9 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # The settings for app updated for the Graded assessment
     'restaurant',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -81,22 +78,12 @@ WSGI_APPLICATION = 'littlelemon.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'reservations',
-        # 'HOST' : '127.0.0.1',
-        # 'PORT' : '3306',
-        # 'USER' : 'root',
-        # 'PASSWORD' : 'root@123',
-        # for reservations
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database_name',
-        'HOST': '127.0.0.1',
-        'USER': 'admindjango',
-        'PASSWORD': 'employee@123!',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        'NAME': 'reservations',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'admindjango',
+        'PASSWORD' : 'employee@123!',
     }
 }
 
@@ -148,20 +135,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-        'rest_framework.filters.OrderingFilter',
-        'rest_framework.filters.SearchFilter',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ),
-}
-
-DJOSER = {
-    "USER_ID_FIELD" : "username"
-}

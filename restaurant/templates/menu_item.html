@@ -4,6 +4,7 @@
 <section>
    <article>
       <h1>Menu item</h1>
+      
       <span>
          <a href="{% url 'home' %}">Home</a> /
          <a href="{% url 'menu' %}">Menu</a>/
@@ -26,7 +27,18 @@
          <!--End col-->
          <!--Begin col-->
          <div class="column">
-            <img src="/Final Assessment/littlelemon/restaurant/static/img/{{menu_item.name}}.jpg" alt="{{ menu_item.name}}" />
+            {% if menu_item.name == 'Bruschetta' %}
+               <img src="{% static 'img/menu_items/Bruschetta.jpg' %}" alt="{{ menu_item.name }}" width="400" height="350">
+            {% elif menu_item.name == 'Greek salad' %}
+               <img src="{% static 'img/menu_items/Greek salad.jpg' %}" alt="{{ menu_item.name }}" width="400" height="350">
+            {% elif menu_item.name == 'Grilled fish' %}
+               <img src="{% static 'img/menu_items/Grilled fish.jpg' %}" alt="{{ menu_item.name }}" width="400" height="350">
+            {% elif menu_item.name == 'Lemon dessert' %}
+               <img src="{% static 'img/menu_items/Lemon dessert.jpg' %}" alt="{{ menu_item.name }}" width="400" height="350">
+            {% else %}
+               <img src="{% static 'img/menu_items/default.jpg' %}" alt="{{ menu_item.name }}">
+            {% endif %}
+            <!-- <img src="{% static 'img/menu_items/Bruschetta.jpg' %}" alt="{{ menu_item.name}}" /> -->
         </div>
          <!--End col-->
       </div>
