@@ -42,7 +42,9 @@ To be able to create users, you can create a superuser and then create other use
 This also allows you to add and delete menu -
 
 <pre>
-python3 manage.py createsuperuser      
+python3 manage.py createsuperuser   
+
+then go to -> http://127.0.0.1:8000/admin/
 </pre>
 
 To be able to access the reservation (MySQL) you can use following commands-
@@ -54,3 +56,25 @@ mysql -u root -p
 and manage the reservations database
 </pre>
 
+## User Manual
+
+1. Home Page
+![Home page](img/1.png)
+2. About
+![About](img/2.png)
+3. Menu
+![Login pane](img/3.png)
+* Menu Item Page 
+![Login pane](img/4.png)
+![Login pane](img/5.png)
+4. Book
+![Login pane](img/6.png)
+* Added functionality to not double book 
+![Login pane](img/7.png)
+5. Reservations
+![Login pane](img/8.png)
+6. ADMIN
+![Login pane](img/9.png)
+* UPDATE MENU
+![Login pane](img/10.png)
+![Login pane](img/11.png)
